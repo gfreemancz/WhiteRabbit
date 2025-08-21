@@ -1,0 +1,30 @@
+{
+  "version": 5,
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Windows GCC x64 (MinGW Makefiles) Debug",
+      "description": "Using GCC x64 compiler with \"ninja\" geneartor on Windows - Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "installDir": "${sourceDir}/build/bin",
+      "environment": {
+        "PATH": "C:/Development/ninja;C:/development/mingw64/bin;$penv{PATH}"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc.exe",
+        "CMAKE_CXX_COMPILER": "g++.exe",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "GCC_BIN_DIRECTORY": "C:/development/mingw64/bin",
+        "MY_DLL_PATH" : "C:\\Development\\Projects_root\\OGL_Template\\dynamicLibs"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "displayName": "Windows GCC x64 (MinGW Makefiles) Debug",
+      "configurePreset": "default"
+    }
+  ]
+}
