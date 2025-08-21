@@ -6,7 +6,7 @@
 		},
 		{
 	    "name": "Logger",
-		"path": "C:/Development/Projects_root/WhiteRabbit/Logger"
+		"path": "../Logger"
 		}
 	],
 	"settings": {

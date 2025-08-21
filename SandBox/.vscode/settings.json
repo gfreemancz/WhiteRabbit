@@ -1,5 +1,8 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}",
+    "cmake.sourceDirectory": "C:/Users/z148190/myThings/relax/OGL_Template",
+    
+    "cmake.cmakePath": "${env:CMAKE_PATH}",
+
     "files.associations": {
         "ostream": "cpp",
         "iostream": "cpp",

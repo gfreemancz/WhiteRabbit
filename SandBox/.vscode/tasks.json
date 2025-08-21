@@ -5,14 +5,10 @@
         {
             "type": "shell",
             "label": "Build MY Project",
-           "command": "${workspaceFolder}/build.bat",
-           // "command": "echo ${workspaceFolder}/build.bat",
+            "command": "${workspaceFolder}/build.bat",
             "args": [
                 
             ],
-            // "options": {
-            //     "cwd": "${fileDirname}"
-            // },
             "problemMatcher": [
                 "$msCompile"
             ],
@@ -26,9 +22,6 @@
             "args": [
                 
             ],
-            // "options": {
-            //     "cwd": "${fileDirname}"
-            // },
             "problemMatcher": [
                 "$msCompile"
             ],

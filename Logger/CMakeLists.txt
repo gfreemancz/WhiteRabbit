@@ -18,7 +18,7 @@ target_compile_definitions(MyLogger PRIVATE MYLIBRARY_EXPORTS)
 install(TARGETS MyLogger RUNTIME DESTINATION ${CMAKE_BINARY_DIR}/bin)
 install(TARGETS MyLogger ARCHIVE DESTINATION ${CMAKE_BINARY_DIR}/arch)
 install(FILES myLogger_ifx.hpp DESTINATION ${PROJECT_DIR}/include_libs)
-
+link_directories(${CMAKE_BINARY_DIR}/arch)
 
 get_target_property(testvar MyLogger OUTPUT_NAME)
 

@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 	}
   else
   {
-    WR_LOG_INFO("SDL initialized succesfuly");
+   // WR_LOG_INFO("SDL initialized succesfuly");
     G_Wokynko = new nsWhiteRabbit::cWindow_WR("Imaginarium V0.1.0", 100, 100, 800, 600);
   }
 
