@@ -116,11 +116,8 @@ install(FILES "${COMPILER_DLL_PATH}/libgcc_s_seh-1.dll" DESTINATION ${CMAKE_BINA
 
 # install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
-add_custom_command( 
-    OUTPUT Run.bat    
-    COMMAND ${CMAKE_COMMAND} -E echo "@set PATH=${MY_DLL_PATH};%PATH%" > ../Run.bat
-    COMMAND ${CMAKE_COMMAND} -E echo "build/bin/${PROJECT_NAME}.exe" >> ../Run.bat
-)
+file(WRITE "${CMAKE_SOURCE_DIR}/Run.bat" "@set PATH=${MY_DLL_PATH};${GCC_BIN_DIRECTORY}\n")
+file(APPEND "${CMAKE_SOURCE_DIR}/Run.bat" "call \"./build/bin/${PROJECT_NAME}.exe\"\n")
 
 add_custom_command( 
     OUTPUT OpenVsCode.bat    

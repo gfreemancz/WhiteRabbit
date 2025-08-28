@@ -1,20 +1,34 @@
 
 #pragma once
 
-#include "memory"
-#include "spdlog/spdlog.h"
+#include <memory>
+#include <string>
+#include <vector>
+#include <iostream>
+
+#define MY_LOGGER_BUFFER_SIZE 1024
 
 
 namespace nsWhiteRabbit
 {
+
+
   class cLogger
   {
     public:
-    static void Init(void);
-    inline static std::shared_ptr<spdlog::logger>& GetClientLogger(){return sClientLogger;}
 
-    private:
-    static std::shared_ptr<spdlog::logger> sClientLogger;
+    static void WriteLogMsg(const std::string& message, ...);
+    static std::shared_ptr<std::string> ptr_UsedColor;
+    static const std::string sColorReset;
+    static const std::string sColorRed;
+    static const std::string sColorGreen;
+    static const std::string sColorYellow;
+    static const std::string sColorBlue;
+    static const std::string sColorMagenta;
+    static const std::string sColorCyan;
+    static const std::string sColorWhite;
+    
+    
 
   };
 }

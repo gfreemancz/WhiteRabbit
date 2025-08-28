@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <string>
+#include <cstdarg>
 
 #ifdef MYLIBRARY_EXPORTS
 #define MYLIBRARY_API __declspec(dllexport)
@@ -11,20 +13,16 @@
 
 namespace nsWhiteRabbit
 {
-  template<typename... Args>
-	MYLIBRARY_API void LogError(Args... args);
-	
-  template<typename... Args>
-	MYLIBRARY_API void LogWarn(Args... args);
-	
-  template<typename... Args>
-	MYLIBRARY_API void LogInfo(Args... args);
-	
-  template<typename... Args>
-	MYLIBRARY_API void LogTrace(Args... args);
+  MYLIBRARY_API void LogError(const std::string& message, ...);
+
+  MYLIBRARY_API void LogWarn(const std::string& message, ...);
+
+  MYLIBRARY_API void LogInfo(const std::string& message, ...);
+
+  MYLIBRARY_API void LogTrace(const std::string& message, ...);
 
 
-  MYLIBRARY_API void LoggerInit(void);
+//  MYLIBRARY_API void LoggerInit(void);
 }
 
 

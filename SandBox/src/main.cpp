@@ -9,8 +9,11 @@ nsWhiteRabbit::cWindow_WR * G_Wokynko = nullptr;
 
 int main(int argc, char** argv) 
 {
-  nsWhiteRabbit::LoggerInit();
+  //nsWhiteRabbit::LoggerInit();
   WR_LOG_INFO("hello white rabbit logging system");
+
+
+  WR_LOG_ERROR("test of error logging:", 42);
 
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
