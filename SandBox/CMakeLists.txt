@@ -2,9 +2,8 @@ cmake_minimum_required(VERSION 3.30)
  
 project(WhiteRabbitSandbox)
 
-# set(PROJECT_NAME ProjectTemplateOGL)
 set(PROJECT_DIR_SOURCE "src")
-set(PROJECT_DIR_OPUTPUT "build")
+set(PROJECT_DIR_OUTPUT "output")
 
 set(COMPILER_DLL_PATH "${GCC_BIN_DIRECTORY}")
 
@@ -16,7 +15,7 @@ set(PROJECT_DIR "${PROJECT_ROOT_DIR}/SandBox")
 
 set(EXTERNAL_LIBS)
 set(EXTERNAL_LIBS_HEADER_PATHS)
-set(INTERNAL_LIBS)
+## Removed unused INTERNAL_LIBS variable
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
@@ -56,7 +55,9 @@ install(FILES "${PROJECT_EXT_LIBS_DIR}/SDL2/bin/SDL2.dll" DESTINATION ${CMAKE_BI
 
 
 # add_subdirectory("src/Logger")
-add_subdirectory("${PROJECT_ROOT_DIR}/Logger" ${PROJECT_DIR_OPUTPUT})
+add_subdirectory("${PROJECT_ROOT_DIR}/Logger" ${PROJECT_DIR_OUTPUT})
+
+
 
 
 add_subdirectory("${PROJECT_DIR_SOURCE}")
@@ -64,10 +65,10 @@ add_subdirectory("${PROJECT_DIR_SOURCE}")
 
 
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_DIR_OPUTPUT}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_DIR_OUTPUT}")
 
 
-set(CMAKE_BINARY_DIR "${CMAKE_SOURCE_DIR}/build")
+set(CMAKE_BINARY_DIR "${CMAKE_SOURCE_DIR}/${PROJECT_DIR_OUTPUT}")
 
 
 
@@ -117,7 +118,7 @@ install(FILES "${COMPILER_DLL_PATH}/libgcc_s_seh-1.dll" DESTINATION ${CMAKE_BINA
 # install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 file(WRITE "${CMAKE_SOURCE_DIR}/Run.bat" "@set PATH=${MY_DLL_PATH};${GCC_BIN_DIRECTORY}\n")
-file(APPEND "${CMAKE_SOURCE_DIR}/Run.bat" "call \"./build/bin/${PROJECT_NAME}.exe\"\n")
+file(APPEND "${CMAKE_SOURCE_DIR}/Run.bat" "call \"./output/bin/${PROJECT_NAME}.exe\"\n")
 
 add_custom_command( 
     OUTPUT OpenVsCode.bat    

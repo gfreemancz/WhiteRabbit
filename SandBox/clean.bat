@@ -1,2 +1,2 @@
-rmdir build /S /Q
-md build
+rmdir output /S /Q
+md output

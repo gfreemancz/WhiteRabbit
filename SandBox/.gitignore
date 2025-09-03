@@ -1,3 +1,5 @@
 build/
+output/
 Run.bat
+log.txt
 OpenVsCode.bat

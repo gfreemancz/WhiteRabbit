@@ -6,8 +6,8 @@
       "displayName": "Windows GCC x64 (MinGW Makefiles) Debug",
       "description": "Using GCC x64 compiler with \"ninja\" geneartor on Windows - Debug",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build",
-      "installDir": "${sourceDir}/build/bin",
+      "binaryDir": "${sourceDir}/output",
+      "installDir": "${sourceDir}/output/bin",
       "environment": {
         "PATH": "C:/Development/ninja;C:/app/tools/MinGW_14_2/mingw64/bin;$penv{PATH}"
       },

@@ -1,5 +1,3 @@
-
-
 add_library(MyLogger SHARED)
 
 target_sources(MyLogger PRIVATE myLogger.cpp myLogger.hpp myLogger_ifx.hpp )
@@ -17,10 +15,17 @@ target_compile_definitions(MyLogger PRIVATE MYLIBRARY_EXPORTS)
 
 install(TARGETS MyLogger RUNTIME DESTINATION ${CMAKE_BINARY_DIR}/bin)
 install(TARGETS MyLogger ARCHIVE DESTINATION ${CMAKE_BINARY_DIR}/arch)
-install(FILES myLogger_ifx.hpp DESTINATION ${PROJECT_DIR}/include_libs)
+install(FILES myLogger_ifx.hpp DESTINATION "${CMAKE_SOURCE_DIR}/include_libs")
 link_directories(${CMAKE_BINARY_DIR}/arch)
 
 get_target_property(testvar MyLogger OUTPUT_NAME)
+
+add_custom_command(
+    TARGET MyLogger
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} --install ${CMAKE_BINARY_DIR} --component MyLogger
+    COMMENT "Installing Logger after build"
+)
 
 # message(STATUS "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 # message(STATUS "${testvar}")

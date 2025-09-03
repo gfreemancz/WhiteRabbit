@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
 
 #define MY_LOGGER_BUFFER_SIZE 1024
 
@@ -16,25 +17,16 @@ namespace nsWhiteRabbit
   class cLogger
   {
     public:
-
-    static void WriteLogMsg(const std::string& message, ...);
+    static void InitFileLog(const std::string& arg_filePath);
+    static void WriteLogMsg(const std::string& message, va_list args,const char* arg_fileName ,int arg_lineNumber);
     static std::shared_ptr<std::string> ptr_UsedColor;
-    static const std::string sColorReset;
-    static const std::string sColorRed;
-    static const std::string sColorGreen;
-    static const std::string sColorYellow;
-    static const std::string sColorBlue;
-    static const std::string sColorMagenta;
-    static const std::string sColorCyan;
-    static const std::string sColorWhite;
-    
-    
+    static std::unique_ptr<std::ostream> m_outputStream;
+    static std::unique_ptr<std::ofstream> m_logFile;
 
+    static  std::string sColorReset;
+    static  std::string sColorRed;
+    static  std::string sColorGreen;
+    static  std::string sColorYellow;
+    static  std::string sColorCyan;
   };
 }
-
-
-// #define  WR_LOG_ERROR(...)  ::nsWhiteRabbit::clogger::GetClientLogger()->error(__VA_ARGS__)
-// #define  WR_LOG_TRACE(...)  ::nsWhiteRabbit::clogger::GetClientLogger()->trace(__VA_ARGS__)
-// #define  WR_LOG_WARN(...)   ::nsWhiteRabbit::clogger::GetClientLogger()->warn(__VA_ARGS__)
-// #define  WR_LOG_INFO(...)   ::nsWhiteRabbit::clogger::GetClientLogger()->info(__VA_ARGS__)
